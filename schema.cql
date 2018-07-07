@@ -6,7 +6,6 @@ CREATE KEYSPACE IF NOT EXISTS booking
 
 USE booking;
 
-rest_id|book_date|individualTableId|id|userName|userActualName|email|phoneNumber|partySize|notes|book_time
 
 
 CREATE TABLE IF NOT EXISTS bookings (

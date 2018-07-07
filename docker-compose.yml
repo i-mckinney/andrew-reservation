@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  survey:
+    # build: .
+    image: imckinney/reservations:v6
+    depends_on:
+      - 'database'
+    ports: 
+      - '3001:3001'
+
+  database:
+    image: postgres:10.4
+    ports: 
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: 'sucks'
+      POSTGRES_USER: 'cameron'
+      POSTGRES_DB: 'bookings'
+      

@@ -10,7 +10,7 @@ let connection = mysql.createConnection({
 
 let grabTimeSlots = (rest_id, date, cb) => {
   let q = 'SELECT * FROM bookings WHERE (restaurant_id = ' + rest_id + ' && date = ' + JSON.stringify(date) + ');';
-  connection.query(q, function(error, results, fields) {
+  connection.query(q, function(error, results) {
     if (error) {
       throw error;
     }

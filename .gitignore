@@ -2,3 +2,4 @@ node_modules/
 public/dist/reservationsBundle.js
 *.csv
 *.zip
+newrelic.js

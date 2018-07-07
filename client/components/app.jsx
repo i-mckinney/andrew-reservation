@@ -24,7 +24,7 @@ class App extends React.Component {
     }
   }   
   componentDidMount() {
-    axios.get(`/reservations/restaurant/${this.state.restaurantId}/${this.state.currDate}`)
+    axios.get(`/restaurant/${this.state.restaurantId}/${this.state.currDate}`)
       .then((response) => {
         this.setState({
           currTimeSlots: response.data,
@@ -35,7 +35,7 @@ class App extends React.Component {
       }); 
   }
   findTable() {
-    axios.get(`/reservations/restaurant/${this.state.restaurantId}/${this.state.currDate}`)
+    axios.get(`/restaurant/${this.state.restaurantId}/${this.state.currDate}`)
       .then((response) => {
         this.setState({
           timeSlots: response.data,

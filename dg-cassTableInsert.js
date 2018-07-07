@@ -12,7 +12,7 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
   }
 let i = 0;
-const data = () => `${getRandomIntInclusive(1,10000000)}|2018-0${getRandomIntInclusive(7,9)}-${getRandomIntInclusive(1,30).toString().padStart(2,'0')}|${getRandomIntInclusive(6,22).toString().padStart(2,"0")}:00:00.000Z|${faker.random.number({min:1, max:10})}|${faker.internet.userName()}|${faker.name.firstName()} ${faker.name.lastName()}|${faker.internet.email()}|${faker.phone.phoneNumberFormat(1)}|${getRandomIntInclusive(1,16)}|${faker.hacker.phrase()}`;
+const data = () => `${getRandomIntInclusive(1,10000000)}|2018-0${getRandomIntInclusive(7,9)}-${getRandomIntInclusive(1,30).toString().padStart(2,'0')}|${getRandomIntInclusive(6,22).toString().padStart(2,"0")}:00|${faker.random.number({min:1, max:10})}|${faker.internet.userName()}|${faker.name.firstName()} ${faker.name.lastName()}|${faker.internet.email()}|${faker.phone.phoneNumberFormat(1)}|${getRandomIntInclusive(1,16)}|${faker.hacker.phrase()}`;
 
 const generateBookings = function(writer) {
     

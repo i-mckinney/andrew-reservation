@@ -1,0 +1,49 @@
+config:
+  target: 'http://ec2-18-188-179-219.us-east-2.compute.amazonaws.com:3001' 
+  phases:
+    - duration: 120
+      arrivalRate: 1
+      rampTo: 16
+    - duration: 120
+      arrivalRate: 16
+      rampTo: 32
+    - duration: 120
+      arrivalRate: 32
+      rampTo: 64
+    - duration: 120
+      arrivalRate: 64
+      rampTo: 128
+    - duration: 120
+      arrivalRate: 128
+      rampTo: 256
+    - duration: 120
+      arrivalRate: 256
+    #   rampTo: 15
+    # - duration: 120
+    #   arrivalRate: 15 
+    # - duration: 120
+    #   arrivalRate: 16
+  payload:
+    path: "conflicting posts.csv"
+    fields: 
+      - "restaurant_id"
+      - "table_id"
+      - "book_date"
+      - "book_time"
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - name: 'random gets and conflicting posts'
+    flow:
+    # - log: "/restaurant/{{ restaurant_id }}/{{ book_date }}"
+    - get:
+        url: '/restaurant/{{ restaurant_id }}/{{ book_date }}'
+    - post:
+        url: '/restaurant/{{restaurant_id}}/123123'
+        json:
+          tableid: {{ table_id }}
+          partysize: 5
+          notes: "asdasdasdasdasdaasdasd"
+          bookdate: "{{ book_date }}"
+          booktime: "{{ book_time }}"
